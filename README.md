@@ -1,10 +1,14 @@
 # Capybara
 
-Capybara is a Ruby gem
+Capybara is a Ruby gem.
 
 Capybara can mimic actions of real users interacting with web-based applications.
 
 Capybara is commonly used inside the Cucumber framework.
+
+It can be found here - https://rubygems.org/gems/capybara
+
+To install 
 
 ![Picture of Capybara, Cucumber and Ruby](capybara.png)
 
@@ -43,51 +47,61 @@ page.execute_script "window.scrollBy(0,10000)" # Scroll down the page with the b
 ```
 
  ## Verifying Content Exists On Page
-     
-     
-    find('#seek_in_halves').hover                       
-    find( "a" , text: "Opt out of the HTML5 Player" )   
-    find("h1").should have_content("Shoes")
-
-    # Expecting page to have certain text inside a certain div + tag
-    expect(page).to have_css("#generated_errors td", text: new_error_message )  
-    expect(page).to have_css("#generated_errors a" , text: new_playlist )
+ 
+```
+find('#seek_in_halves').hover                       
     
-    page.should have_content('lolacopterdaly')          # From ETSY, a field is populated from firstname + lastname fields
-    expect(page).to have_title "Cucumber - Wikipedia"   # Just part of the actual title "Cucumber - Wikipedia, the free encyclopedia"
+find( "a" , text: "Opt out of the HTML5 Player" )   
 
-    assert_selector('div.heading', text: 'Create an Etsy account and start shopping') 
+find("h1").should have_content("Shoes")
 
-    if page.first("#bbcprivacy-continue-button")
-      click_button( "OK" )
-    end
+# Expecting page to have certain text inside a certain div + tag
+expect(page).to have_css("#generated_errors td", text: new_error_message )  
+expect(page).to have_css("#generated_errors a" , text: new_playlist )
     
-    if page.first(".p_subtitleButton")
-      page.first(".p_subtitleButton").click
-      sleep(1)
-    end
-
-    #------------------------------------------------------------------------
-    # Clicking SINGLE Elements
-    #------------------------------------------------------------------------
-
-    page.first('#derp').click                           # derp    is a button with an ID
-    page.first(".p_ctaIcon").click                      # ctaIcon is a button with a CLASS
-
-    click_link "Cucumber - Wikipedia"                   # First listed result from a Google search query
-    click_link( "Opt in to the HTML5 Player" )          # Another example of using click LINK
+page.should have_content('lolacopterdaly')          # From ETSY, a field is populated from firstname + lastname fields
     
-    click_button( "OK" )
-    click_button( "Yes, I agree" )
+expect(page).to have_title "Cucumber - Wikipedia"   # Just part of the actual title "Cucumber - Wikipedia, the free encyclopedia"
+
+assert_selector('div.heading', text: 'Create an Etsy account and start shopping') 
+
+if page.first("#bbcprivacy-continue-button")
+click_button( "OK" )
+end
+    
+if page.first(".p_subtitleButton")
+page.first(".p_subtitleButton").click
+sleep(1)
+end
+ ```
+
+
+### Clicking SINGLE Elements
+
+```
+page.first('#derp').click                           # derp    is a button with an ID
+
+page.first(".p_ctaIcon").click                      # ctaIcon is a button with a CLASS
+
+click_link "Cucumber - Wikipedia"                   # First listed result from a Google search query
+
+click_link( "Opt in to the HTML5 Player" )          # Another example of using click LINK
+    
+click_button( "OK" )
+
+click_button( "Yes, I agree" )
   
-    find('a.pr-xs-3', :text => 'Shoes').click           # "Shoes" is text for an "a" element link under CLASS pr-xs-3
-    find("span", text: "Flash").hover
-    find( "a" , text: new_code ).click
+find('a.pr-xs-3', :text => 'Shoes').click           # "Shoes" is text for an "a" element link under CLASS pr-xs-3
+
+find("span", text: "Flash").hover
+
+find( "a" , text: new_code ).click
   
-    #------------------------------------------------------------------------
-    # Clicking Multiple Elements
-    #------------------------------------------------------------------------
-  
+```
+
+### Clicking Multiple Elements
+
+```
     # Using table from Scenario Outline
     When(/^I click on error code - "([^"]*)"$/) do |new_code|
       if new_code == "1005" or new_code == "3024"
@@ -99,6 +113,7 @@ page.execute_script "window.scrollBy(0,10000)" # Scroll down the page with the b
     page.all(:css, '.refbutton').each do |item|
       puts item.click
     end
+```
 
     #------------------------------------------------------------------------
     # Counting Number Elements On Page
