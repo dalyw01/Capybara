@@ -1,6 +1,6 @@
 # Capybara
 
-![Git](hhttps://agiletesters.com.br/assets/uploads/files/1503668542413-eded01f4-6443-48a0-8ebe-cecd72894888-image.png)
+![Picture of Capybara, Cucumber and Ruby](capybara.png)
 
 
 ## General Commands For Browsers
