@@ -94,7 +94,6 @@ find('a.pr-xs-3', :text => 'Shoes').click           # "Shoes" is text for an "a"
 find("span", text: "Flash").hover
 
 find( "a" , text: new_code ).click
-  
 ```
 
 ### Clicking Multiple Elements
@@ -209,7 +208,7 @@ Capybara::Selenium::Driver.class_eval do
 end
 ```
 
-### Ruby Asserts
+### Ruby Asserts (Not Capybara Specific)
 
 ```
 final_volume = page.execute_script( 'return(mediaPlayer.volume() );')
@@ -222,17 +221,7 @@ expect(final_volume).to be_between(0.9, 1.1)
 
 expect(final_volume).to be <= 1
 ```    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     
     
