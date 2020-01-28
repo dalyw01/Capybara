@@ -117,8 +117,11 @@ end
 
 ```
 page.all(".refbutton").count                        # Counts every instance of the class .refbutton
+
 page.all("li").count                                # Counts all li elements on page
+
 page.all(".pl-xs-0 li").count                       # Number of li elements INSIDE the class .pl-xs-0
+
 page.all(".pl-xs-0 li").count.should eql(8)         # Different way instead of using IF statement                                   
 ```
 
@@ -126,7 +129,9 @@ page.all(".pl-xs-0 li").count.should eql(8)         # Different way instead of u
 
 ```
 div_text = find('.recipe-share').text()        # To copy the word next to the input field
+
 div_text = find('.recipe-share input').text()  # To copy what's in the field
+
 find('#orb-search-q').set(div_text)            # This is buggy when pasting URLs
 ``` 
   
@@ -143,9 +148,13 @@ end
   
 ```
 find(:id, 'smpj2ooiframemedia_player').native.send_keys(:tab)
+
 find(:id, 'smpj2ooiframemedia_player').native.send_keys(:arrow_down)
+
 find(:id, 'smpj2ooiframemedia_player').native.send_keys(:arrow_up)
+
 find(:id, 'smpj2ooiframemedia_player').native.send_keys(:enter)
+
 find(:id, 'first-name').native.send_keys(:tab) # Example of hooking onto ID and tabbing from there!
 ```
 
@@ -166,8 +175,11 @@ end
 
 ```
 page.execute_script('embeddedMedia.players[0].play();')
+
 page.execute_script( 'mediaPlayer.updateUiConfig({"controls": {"always": "true"}});')
+
 page.execute_script( 'alert("Here is an alert!");')
+
 page.driver.browser.switch_to.alert.accept
 
 page.execute_script( 
