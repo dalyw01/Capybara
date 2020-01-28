@@ -1,30 +1,37 @@
 # Capybara
 
+Capybara is a Ruby gem
+
+Capybara can mimic actions of real users interacting with web-based applications.
+
+Capybara is commonly used inside the Cucumber framework.
+
 ![Picture of Capybara, Cucumber and Ruby](capybara.png)
+
 
 
 ## General Commands For Browsers
 
-    visit( 'http://www.google.co.uk')
+```
+visit( 'http://www.google.co.uk')
 
-    sleep(2)
+sleep(2)
     
-    refresh()
+refresh()
 
-    if page.driver.browser.browser == :firefox
-      page.driver.browser.manage.window.maximize()
-    elsif page.driver.browser.browser == :chrome
-      page.driver.browser.manage.window.resize_to(1440, 800) # Chrome doesn't maximize() too good so used this instead
-    end
+if page.driver.browser.browser == :firefox
+  page.driver.browser.manage.window.maximize()
+elsif page.driver.browser.browser == :chrome
+  page.driver.browser.manage.window.resize_to(1440, 800) # Chrome doesn't maximize() too good so used this instead
+end
 
-    page.driver.browser.manage.window.maximize()
-    page.driver.browser.manage.window.resize_to( 1440, 800 )
+page.driver.browser.manage.window.maximize()
+
+page.driver.browser.manage.window.resize_to( 1440, 800 )
     
-    page.execute_script "window.scrollBy(0,10000)" # Scroll down the page with the browser
+page.execute_script "window.scrollBy(0,10000)" # Scroll down the page with the browser
   
-    #------------------------------------------------------------------------
-    # Opening New Tabs
-    #------------------------------------------------------------------------  
+### Opening New Tabs
 
     within_window open_new_window do
         visit( 'http://google.co.uk' )
@@ -33,6 +40,7 @@
     within_window open_new_window do
         visit( text )
     end
+```
 
  ## Verifying Content Exists On Page
      
