@@ -124,6 +124,18 @@ page.all(".pl-xs-0 li").count                       # Number of li elements INSI
 page.all(".pl-xs-0 li").count.should eql(8)         # Different way instead of using IF statement                                   
 ```
 
+
+### A11Y Checks
+
+```
+page.first(".p_pauseIcon").hover
+expect(page.find('.p_pauseIcon')['aria-label']).to eq('Pause')
+
+
+expect(page.find('button#p_subtitleSizeButton_useSmallestFontSize')['aria-pressed']).to eq("true")
+```  
+            
+            
 ### Copy + Pasting
 
 ```
@@ -133,7 +145,7 @@ div_text = find('.recipe-share input').text()  # To copy what's in the field
 
 find('#orb-search-q').set(div_text)            # This is buggy when pasting URLs
 ``` 
-  
+ 
 
 ### Specifying actions within an iFrame
 
