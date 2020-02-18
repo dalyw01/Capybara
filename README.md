@@ -131,8 +131,12 @@ page.all(".pl-xs-0 li").count.should eql(8)         # Different way instead of u
 page.first(".p_pauseIcon").hover
 expect(page.find('.p_pauseIcon')['aria-label']).to eq('Pause')
 
-
 expect(page.find('button#p_subtitleSizeButton_useSmallestFontSize')['aria-pressed']).to eq("true")
+
+within_frame 'smphtml5iframemp' do
+    expect(page.find('#p_audioui_nextButton')['aria-label']).to eq('Next item')
+    find_button('p_audioui_nextButton', disabled: true).should be
+end
 ```  
             
             
