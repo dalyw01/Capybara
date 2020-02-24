@@ -138,8 +138,22 @@ within_frame 'smphtml5iframemp' do
     find_button('p_audioui_nextButton', disabled: true).should be
 end
 ```  
-            
-            
+
+### Verify CSS
+
+```
+within_frame 'smphtml5iframemp' do
+    color = find('.p_cta').native.css_value('background-color')
+    expect(color).to eq('rgba(0, 0, 0, 0.8)')
+end
+
+within_frame('wrapper') do
+   color = find('body').native.css_value('background-color')
+   expect(color).to eq('rgba(0, 1, 17, 1)')
+end
+
+```
+
 ### Copy + Pasting
 
 ```
