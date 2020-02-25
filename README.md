@@ -152,6 +152,20 @@ within_frame('wrapper') do
    expect(color).to eq('rgba(0, 1, 17, 1)')
 end
 
+x = find('h1').native.css_value('font-family')
+expect(x).to eq("ReithSans, Arial, Helvetica, freesans, sans-serif")
+
+cta_display = find('.p_iconHolder').native.css_value('display')
+expect(cta_display).to eq('block')
+
+cta_color = find('.p_iconHolder').native.css_value('background-color')
+expect(cta_color).to eq('rgba(0, 0, 0, 0)') # Transparent
+
+transition_time = find('.p_iconHolder').native.css_value('transition')
+expect(transition_time).to eq('opacity 0.4s ease-out 0s')
+
+hover_color = find('.p_controlBarButton.p_buttonHover').native.css_value('background-color')
+expect(hover_color).to eq("rgba(187, 25, 25, 0.133)")
 ```
 
 ### Copy + Pasting
