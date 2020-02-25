@@ -152,6 +152,9 @@ within_frame('wrapper') do
    expect(color).to eq('rgba(0, 1, 17, 1)')
 end
 
+cta_guidance = find('.p_guidanceText').native.css_value('font-family')
+expect(cta_guidance).to eq('ReithSans, Arial, Helvetica, freesans, sans-serif')
+
 x = find('h1').native.css_value('font-family')
 expect(x).to eq("ReithSans, Arial, Helvetica, freesans, sans-serif")
 
